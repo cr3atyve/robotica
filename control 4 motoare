@@ -1,0 +1,103 @@
+char t;
+ 
+void setup() {
+pinMode(13,OUTPUT);   //left motors forward
+pinMode(12,OUTPUT);   //left motors reverse
+pinMode(11,OUTPUT);   //right motors forward
+pinMode(10,OUTPUT);   //right motors reverse
+pinMode(9,OUTPUT); 
+pinMode(8,OUTPUT);
+pinMode(7,OUTPUT);
+pinMode(6,OUTPUT);
+pinMode(5,OUTPUT);
+pinMode(4,OUTPUT);
+pinMode(3,OUTPUT);
+pinMode(2,OUTPUT);
+ 
+Serial.begin(9600);
+ 
+}
+ 
+void loop() {
+if(Serial.available()){
+  t = Serial.read();
+  Serial.println(t);
+}
+ 
+if(t == '1'){            //move forward(all motors rotate in forward direction)
+  digitalWrite(13,HIGH);
+  digitalWrite(12,LOW);
+  digitalWrite(11,200);
+  digitalWrite(10,HIGH);
+  digitalWrite(9,LOW);
+  digitalWrite(8,200);
+  digitalWrite(7,HIGH);
+  digitalWrite(6,LOW);
+  digitalWrite(5,200);
+  digitalWrite(4,HIGH);
+  digitalWrite(3,LOW);
+  digitalWrite(2,200);
+}
+ 
+else if(t == '2'){      //move reverse (all motors rotate in reverse direction)
+  digitalWrite(13,LOW);
+  digitalWrite(12,HIGH);
+  digitalWrite(11,200);
+  digitalWrite(10,LOW);
+  digitalWrite(9,HIGH);
+  digitalWrite(8,200);
+  digitalWrite(7,LOW);
+  digitalWrite(6,HIGH);
+  digitalWrite(5,200);
+  digitalWrite(4,LOW);
+  digitalWrite(3,HIGH);
+  digitalWrite(2,200);
+}
+ 
+else if(t == '3'){      //turn right (left side motors rotate in forward direction, right side motors doesn't rotate)
+  digitalWrite(13,HIGH);
+  digitalWrite(12,LOW);
+  digitalWrite(11,200);
+  digitalWrite(10,HIGH);
+  digitalWrite(9,LOW);
+  digitalWrite(8,200);
+  digitalWrite(7,LOW);
+  digitalWrite(6,LOW);
+  digitalWrite(5,200);
+  digitalWrite(4,LOW);
+  digitalWrite(3,LOW);
+  digitalWrite(2,200);
+  
+}
+ 
+else if(t == '4'){      //turn left (right side motors rotate in forward direction, left side motors doesn't rotate)
+ digitalWrite(13,LOW);
+  digitalWrite(12,LOW);
+  digitalWrite(11,200);
+  digitalWrite(10,LOW);
+  digitalWrite(9,LOW);
+  digitalWrite(8,200);
+  digitalWrite(7,HIGH);
+  digitalWrite(6,LOW);
+  digitalWrite(5,200);
+  digitalWrite(4,HIGH);
+  digitalWrite(3,LOW);
+  digitalWrite(2,200);
+}
+ 
+else if(t == '5'){      //STOP (all motors stop)
+  digitalWrite(13,LOW);
+  digitalWrite(12,LOW);
+  digitalWrite(11,200);
+  digitalWrite(10,LOW);
+  digitalWrite(9,LOW);
+  digitalWrite(8,200);
+  digitalWrite(7,LOW);
+  digitalWrite(6,LOW);
+  digitalWrite(5,200);
+  digitalWrite(4,LOW);
+  digitalWrite(3,LOW);
+  digitalWrite(2,200);
+}
+delay(100);
+}
