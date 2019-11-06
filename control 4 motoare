@@ -1,10 +1,10 @@
 char t;
  
 void setup() {
-pinMode(13,OUTPUT);   //left motors forward
-pinMode(12,OUTPUT);   //left motors reverse
-pinMode(11,OUTPUT);   //right motors forward
-pinMode(10,OUTPUT);   //right motors reverse
+pinMode(13,OUTPUT);   
+pinMode(12,OUTPUT);   
+pinMode(11,OUTPUT);   
+pinMode(10,OUTPUT);   
 pinMode(9,OUTPUT); 
 pinMode(8,OUTPUT);
 pinMode(7,OUTPUT);
@@ -24,7 +24,7 @@ if(Serial.available()){
   Serial.println(t);
 }
  
-if(t == '1'){            //move forward(all motors rotate in forward direction)
+if(t == '1'){            //mers inainte (toate motoarele se rotesc inainte)
   digitalWrite(13,HIGH);
   digitalWrite(12,LOW);
   digitalWrite(11,200);
@@ -39,7 +39,7 @@ if(t == '1'){            //move forward(all motors rotate in forward direction)
   digitalWrite(2,200);
 }
  
-else if(t == '2'){      //move reverse (all motors rotate in reverse direction)
+else if(t == '2'){      //mers inapoi (toate motoarele se rotesc inapoi)
   digitalWrite(13,LOW);
   digitalWrite(12,HIGH);
   digitalWrite(11,200);
@@ -54,7 +54,7 @@ else if(t == '2'){      //move reverse (all motors rotate in reverse direction)
   digitalWrite(2,200);
 }
  
-else if(t == '3'){      //turn right (left side motors rotate in forward direction, right side motors doesn't rotate)
+else if(t == '3'){      //viraj dreapta (motoarele din stanga merg inainte, motoarele din dreapta nu se rotesc)
   digitalWrite(13,HIGH);
   digitalWrite(12,LOW);
   digitalWrite(11,200);
@@ -70,7 +70,7 @@ else if(t == '3'){      //turn right (left side motors rotate in forward directi
   
 }
  
-else if(t == '4'){      //turn left (right side motors rotate in forward direction, left side motors doesn't rotate)
+else if(t == '4'){      //viraj stanga (motoarele din trepta merg inainte, motoarele din stanga nu se rotesc)
  digitalWrite(13,LOW);
   digitalWrite(12,LOW);
   digitalWrite(11,200);
@@ -85,7 +85,7 @@ else if(t == '4'){      //turn left (right side motors rotate in forward directi
   digitalWrite(2,200);
 }
  
-else if(t == '5'){      //STOP (all motors stop)
+else if(t == '5'){      //STOP (toate motoarele se opresc)
   digitalWrite(13,LOW);
   digitalWrite(12,LOW);
   digitalWrite(11,200);
