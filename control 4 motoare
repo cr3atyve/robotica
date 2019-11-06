@@ -100,4 +100,4 @@ else if(t == '5'){      //STOP (toate motoarele se opresc)
   digitalWrite(2,200);
 }
 delay(100);
-}
+} 
